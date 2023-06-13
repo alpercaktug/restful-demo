@@ -13,4 +13,8 @@ public interface StudentService {
 
     Student createStudent(Student student);
 
+    void updateStudent(UUID studentId, Student student);
+
+    void deleteStudent(UUID studentId);
+
 }

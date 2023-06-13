@@ -30,6 +30,19 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
+    public void deleteStudent(UUID studentId) {
+        studentMap.remove(studentId);
+    }
+
+    @Override
+    public void updateStudent(UUID studentId, Student student) {
+        Student existing = studentMap.get(studentId);
+        existing.setName(student.getName());
+        existing.setSurname(student.getSurname());
+        existing.setAge(student.getAge());
+    }
+
+    @Override
     public Student createStudent(Student student) {
         Student created = student.builder()
                 .studentId(UUID.randomUUID())
